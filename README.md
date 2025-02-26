@@ -28,5 +28,5 @@ This project is a **Natural Language Processing (NLP) chatbot** developed as par
 ### 1️⃣ Clone the Repository  
 Run the following command in your terminal:  
 ```bash
-git clone https://github.com/RGS-AI/Chatbot_using_NLP_AICTE_Cycle4.git
-cd Chatbot_using_NLP_AICTE_Cycle4
+git clone https://github.com/barnwal-ankit/Chatbot_using_NLP
+cd Chatbot_using_NLP

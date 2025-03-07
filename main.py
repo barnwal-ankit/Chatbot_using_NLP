@@ -151,3 +151,44 @@ intents = [
         "responses": ["I'm not sure about that. Can you rephrase?", "Sorry, I don't have an answer for that."]
     }
 ]
+# Prepare the training data
+X_train = []
+y_train = []
+labels = []
+for intent in intents:
+    for pattern in intent['patterns']:
+        X_train.append(pattern)
+        y_train.append(intent['tag'])
+    labels.append(intent['tag'])
+
+# Convert text data into numerical vectors using TF-IDF
+vectorizer = TfidfVectorizer(tokenizer=word_tokenize)
+X_train_tfidf = vectorizer.fit_transform(X_train)
+
+# Train a logistic regression model
+model = LogisticRegression()
+model.fit(X_train_tfidf, y_train)
+
+# Function to predict intent and generate a response
+def chatbot_response(user_input):
+    user_input_tfidf = vectorizer.transform([user_input])
+    intent_tag = model.predict(user_input_tfidf)[0]
+
+    # Find the corresponding response
+    for intent in intents:
+        if intent['tag'] == intent_tag:
+            return random.choice(intent['responses'])
+    return "I'm not sure about that. Can you rephrase?"
+
+# Streamlit UI
+st.title("Chatbot with Machine Learning")
+
+st.write("Ask me anything!")
+
+# Get user input
+user_input = st.text_input("You:", "")
+
+if user_input:
+    response = chatbot_response(user_input)
+    st.text_area("Chatbot:", response, height=100)
+

@@ -25,15 +25,30 @@ This project is a **Natural Language Processing (NLP) chatbot** developed as par
 ## 💻 Installation Guide  
 
 ### 1️⃣ Clone the Repository  
+Run the following command in your terminal:  
+
+```bash
 git clone https://github.com/barnwal-ankit/Chatbot_using_NLP.git
 cd Chatbot_using_NLP
+```
 
 ### 2️⃣ Install Required Dependencies  
-# Ensure you have Python 3.7+ installed. Then, install the required dependencies.  
+Ensure you have Python 3.7+ installed. Then, install the required dependencies:  
+
+```bash
 pip install -r requirements.txt
+```
 
-# If the requirements.txt file is missing, manually install the necessary packages.  
+If the `requirements.txt` file is missing, manually install the necessary packages:  
+
+```bash
 pip install nltk numpy scikit-learn streamlit
+```
 
-### 3️⃣  Run the Chatbot  
-streamlit run app.py
+### 3️⃣ Run the Chatbot  
+Launch the chatbot using Streamlit:  
+
+```bash
+streamlit run chatbot.py
+```
+

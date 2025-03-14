@@ -14,7 +14,13 @@ nltk.data.path.append(os.path.abspath("nltk_data"))
 nltk.download('punkt')
 
 # Load intents from the JSON file
-file_path = os.path.abspath("C:/Users/atul0/Downloads/Chatbot_using_NLP_AICTE_Cycle4-main/Chatbot_using_NLP_AICTE_Cycle4-main/intents.json")
+# file_path = os.path.abspath("C:/Users/atul0/Downloads/Chatbot_using_NLP_AICTE_Cycle4-main/Chatbot_using_NLP_AICTE_Cycle4-main/intents.json")
+
+# Dynamically get the current directory where the script is running
+base_dir = os.path.dirname(os.path.abspath(__file__))
+# Build the path to intents.json dynamically
+file_path = os.path.join(base_dir, "intents.json")
+
 with open(file_path, "r") as file:
     intents = json.load(file)
 
